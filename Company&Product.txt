@@ -19,8 +19,14 @@ owner_name,
 services_offered
 )
 
-values( 1,'pair', '1228 28', 1998, 'kitty Marsk', 'Steve' )
+values( 1,'pair', '1228 28', 1998, 'kitty Marsk', 'Phone' ),
+(2, 'tesla', '233 29', 2003, 'Elon Musk', 'electic car' ),
+(3, 'Apple', '1003 399', 1976, 'Steve Jobs', 'phones and other equipments' ),
+(4, 'google', '3222 10', 1998, 'sundar pichai', 'search engin' ),
+(5, 'intel', '10003 34', 1968, 'Robert Noyce ', 'CPU' )
+SET IDENTITY_INSERT Company Off
 SELECT * FROM Company
+
 ****************************************************************************
 Create table Product
 (
