@@ -1,0 +1,51 @@
+Create table Company
+(	
+	id int not null identity primary key,
+	company_name varchar(50) not null,
+	company_address varchar(50), 
+	opened_year int not null,
+	owner_name varchar(50) not null,
+	services_offered varchar(50) default 'General services'
+)
+
+SET IDENTITY_INSERT Company ON
+insert into Company
+(
+id,
+company_name,
+company_address,
+opened_year,
+owner_name,
+services_offered
+)
+
+values( 1,'pair', '1228 28', 1998, 'kitty Marsk', 'Steve' )
+SELECT * FROM Company
+****************************************************************************
+Create table Product
+(
+	id int not null identity primary key,
+	product_type varchar(50) not null,
+	product_name varchar(50) not null,
+	designed_year int,
+	production_country varchar(50) not null,
+	product_description varchar(500),
+)
+
+
+SET IDENTITY_INSERT Product ON
+insert into Product
+(id,product_type,product_name, designed_year,production_country,product_description )
+
+
+values(1, 'phone', 'Apple', 1976, 'America', 'very nice' ),
+( 2,'game', 'Rock-star', 1966, 'America', 'very well' ),
+( 3,'TV', 'Netfly', 1984, 'America', 'just fun' ),
+( 4,'Computer', 'Asus', 1992, 'America', 'RGB is shining' ),
+( 5,'mouse', 'Logitech', 1996, 'America', 'expensive and easily broke' )
+
+SET IDENTITY_INSERT Product off
+SELECT * FROM Product
+
+
+
