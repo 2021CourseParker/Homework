@@ -1,0 +1,45 @@
+select
+	 REPLACE ( CONCAT(SUBSTRING(title, 1,10 ),'-'), '-', '...' ) as 'short title',
+	concat(author_fname,',', author_lname) as author,
+	CONCAT(stock_quantity,' ', 'in stock') as quanrity
+
+from books
+
+
+****************************
+
+select * from books
+
+
+ insert into books(title, author_fname,author_lname,released_year,stock_quantity,pages)
+values ('Book name1', 'name1', 'surname1',2010, 41, 308)​,
+
+('Book name2', 'name2', 'surname2',2004, 53, 293)​,
+
+('Book name3', 'name3', 'surname3',1998, 42, 271)
+
+update books
+	set title = 'New quest of a Hero' 
+	where title = 'Book name2'
+update books
+	set author_fname ='Michael', author_lname = 'Button'
+	where title = 'New quest of a Hero' 
+
+*************************
+
+delete from books where author_lname = 'surname3'
+select *from books where pages = 308
+select  title from books where pages = 308
+select  title,concat(author_fname,',', author_lname) as author  from books where pages = 308
+
+****************************
+
+select 
+	title as 'name',
+	concat(stock_quantity, '', 'books') as 'quantity',
+	concat('No of pages: ', pages) as 'pages',
+	'Chinese' as 'language'
+
+
+from books where author_fname = 'Neil'
+
