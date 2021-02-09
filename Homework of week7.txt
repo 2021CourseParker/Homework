@@ -1,0 +1,29 @@
+select top 5 title, pages from books order by pages desc
+select top 3 title, released_year from books order by released_year 
+select distinct author_fname  from books 
+select distinct released_year  from books 
+select title from books where title like '%just%'
+select title from books where title like '%stories' order by title
+select title from books where title like '%the%' order by title desc
+select top 2 title from books 
+where author_fname like '%Neil%' order by stock_quantity, released_year,pages
+
+select top 2 title,author_fname,author_lname, stock_quantity,released_year,pages from books 
+where author_fname like '%Neil%' order by stock_quantity, released_year,pages
+
+*******************************************
+
+select count (title)  as 'titles' from books 
+select count ( distinct author_fname) as 'first name of authors' from books
+select count ( distinct author_lname) as 'last name of authors' from books
+select  released_year, pages FROM books GROUP BY released_year, pages;
+select author_lname,count(title) as 'book' from books group by author_lname
+select AVG(pages) as 'average of all pages' from books
+select author_lname, AVG(pages) as 'average page of authors' from books group by author_lname
+select CONCAT(author_fname, ' ' , author_lname) as 'author', stock_quantity from books
+where stock_quantity = (select Min(stock_quantity ) from books)
+select COUNT(title) as 'book', released_year from books group by released_year
+
+
+*****************************************
+
