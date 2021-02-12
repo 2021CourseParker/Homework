@@ -1,0 +1,57 @@
+select * from books
+where pages between 100 and 200
+or pages between 500 and 600
+
+select * from books
+where author_lname not in('Smith', 'Carver', 'Delilo')
+
+select * from books
+where author_lname in('Lahiri','Gaiman') and released_year> 2000
+
+select * from books
+where released_year > 1980
+
+select * from books
+where author_lname not like 'S%'  and author_lname  not like 'G%'
+
+select * from books
+where pages < 200 or pages between 250 and 400 or pages >600
+
+select * from books
+where title like '%the%' or released_year between 2003 and 2015
+
+
+************************************
+select * from books
+
+select * from books
+where author_lname in('Eggers' , 'Chabon')
+and stock_quantity> 40 
+and pages between 200 and 400
+
+select * from people
+
+insert into people(name, birthdate, birthtime, birthdt )
+values('rick', '2010-11-17','13:47:01', '2010-11-17 13:47:01')
+
+update people
+set birthdate = '2010-11-17'
+where name = 'rick'
+
+
+--delete * from people
+--where biethdate = (select DATEDIFF(YEAR, birthdate, GETDATE())  from people) > 19
+
+
+
+--select DATEPART(YEAR, birthdate) from people
+
+--select DATEDIFF(YEAR, birthdate, GETDATE()) from people
+
+delete from people
+where name in('padma','Larry','Dave')
+
+update people
+set birthdate = DATEADD(MONTH,-2, GETDATE()) , name = 'baby' 
+where birthdate = (select Min(birthdate)from people)
+
