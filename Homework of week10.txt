@@ -1,0 +1,50 @@
+
+
+select title from tv_shows
+inner join reviews 
+on tv_shows.id = reviews.tv_show_id
+where rating > 8.0
+--------------------------------------------
+
+select concat(first_name, ' ', last_name) as 'name' from reviewers 
+inner join reviews 
+on reviewers .id = reviews.reviewer_id
+where rating = 8.0
+
+--------------------------------------------
+
+select first_name,  last_name, rating, title from reviewers 
+inner join reviews 
+on reviewers .id = reviews.reviewer_id
+
+inner join tv_shows
+on tv_shows.id = reviews.tv_show_id
+
+
+where title = 'Breaking Bad'
+
+--------------------------------------------
+
+select genre, avg(rating) as 'avg_rating' from tv_shows 
+inner join  reviews
+on tv_shows.id = reviews.tv_show_id
+group by genre
+
+----------------------------------------------
+select first_name,  last_name, count(rating)as 'COUNT', min(rating)'MIN', Max(rating) as 'MAX',avg(rating) as 'AVG'  from reviewers 
+inner join reviews 
+on reviewers .id = reviews.reviewer_id
+
+inner join tv_shows
+on tv_shows.id = reviews.tv_show_id
+group by first_name,last_name
+
+---------------------------------------------
+
+
+select title, rating, concat(first_name, ' ', last_name) as 'reviwer'  from reviewers 
+inner join reviews 
+on reviewers .id = reviews.reviewer_id
+
+inner join tv_shows
+on tv_shows.id = reviews.tv_show_id
