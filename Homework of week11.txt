@@ -1,0 +1,101 @@
+
+select top 20  * from users order by created_at
+
+--------------------------------
+
+
+
+----------------------------------
+
+select top 1 photo_id, count(user_id) as 'likes'  from likes 
+inner join users
+on users.id =likes.user_id
+
+
+group by  photo_id
+order by likes
+
+
+-----------------------------------
+
+select count(*) as 'times ofsmile tag'  from photo_tags
+inner join tags
+on tags.id = photo_tags.tag_id
+where tag_name ='smile'
+
+------------------------------------
+
+
+select top 3 tag_name,count(tag_id) as 'times of tags' from photo_tags
+inner join tags
+on tags.id = photo_tags.tag_id
+group by tag_id, tag_name 
+order by 'times of tags'
+---------------------------------------
+
+
+select  image_url from photo_tags
+inner join tags
+on tags.id = photo_tags.tag_id
+
+inner join photos
+on photos.id = photo_tags.photo_id
+where tag_name in('sunrise','sunset', 'landscape', 'photography' )
+
+---------------------------------
+
+
+select username, comment_text from comments
+
+inner join users
+on users.id = comments.user_id
+
+--------------------------------
+select top 1  username, comment_text from comments
+
+inner join users
+on users.id = comments.user_id
+order by comments.created_at
+-------------------------------
+
+select top 1 username, count(user_id) as 'times of comment' from comments
+
+inner join users
+on users.id = comments.user_id
+group by user_id, username
+order by 'times of comment' desc
+--------------------------------------
+
+select  photo_id, tags.id from tags
+right join photo_tags
+on tags.id = photo_tags.tag_id
+group by photo_id, tags.id
+order by tags.id
+
+
+-----------------------------------
+
+select username, image_url, count(tag_id) as 'nuber_of_Tags' from users
+
+inner join photos
+on users.id = photos.user_id
+
+inner join photo_tags
+on photos.id = photo_tags.photo_id
+
+group by username, image_url, photo_id
+order by image_url
+
+---------------------------------
+
+
+select username, count(photos.user_id) as 'nuber_of_photos' , count(tag_id) as 'nuber_of_Tags' from users
+
+inner join photos
+on users.id = photos.user_id
+
+inner join photo_tags
+on photos.id = photo_tags.photo_id
+
+group by username,photo_id
+order by username
