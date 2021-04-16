@@ -1,0 +1,23 @@
+       private static void InsertData(person_dbEntities db)
+        {
+            int result = 0;
+            result = db.Database.ExecuteSqlCommand("insert into dbo.Students (Id,Name,School) values (1,'Jojo','Usc')");
+            MessageBox.Show(result.ToString());
+
+        }
+
+        private static void Update(person_dbEntities db)
+        {
+            int result = 0;
+            result = db.Database.ExecuteSqlCommand("update dbo.Students set School = 'Braige' where Name = 'Jojo'");
+            MessageBox.Show(result.ToString());
+
+        }
+
+        private static void Delete(person_dbEntities db)
+        {
+            int result = 0;
+            result = db.Database.ExecuteSqlCommand("delete from Students where Name = 'Jojo'");
+            MessageBox.Show(result.ToString());
+
+        }
