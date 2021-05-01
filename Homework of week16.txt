@@ -1,0 +1,78 @@
+        private void btnSelectCourse_Click(object sender, EventArgs e)
+        {
+            using (SchoolDBEntities db = new SchoolDBEntities())
+            {
+                string course;
+                if (string.IsNullOrEmpty(txtCourseName.Text))
+                {
+                    course = "gsdg";
+                }
+                else
+                {
+                    course = txtCourseName.Text;
+                }
+
+                var query = from b in db.Courses
+                            where b.CourseName == course
+                            select b;
+
+                var g = query.FirstOrDefault();
+                if (g is null)
+                {
+                    MessageBox.Show("nothing");
+                }
+                else
+                {
+                    MessageBox.Show(g.CourseName + "  " + g.TeacherId);
+                }
+            }
+               
+        }
+
+        private void btnInsertCourse_Click(object sender, EventArgs e)
+        {
+            SchoolDBEntities db = new SchoolDBEntities();
+
+            Course bla = new Course();
+            bla.CourseId = 7;
+            bla.CourseName = "biology";
+            bla.Location = null;
+            bla.TeacherId = 7;
+                 
+            db.Courses.Add(bla);
+            db.SaveChanges();
+
+
+
+            db.Dispose();
+        }
+
+        private void btnUpdateCourse_Click(object sender, EventArgs e)
+        {
+            using (SchoolDBEntities db = new SchoolDBEntities())
+            {
+
+                      
+                Course course = db.Courses.First<Course>();     
+                course.CourseName = "ksdfs";
+                int output = db.SaveChanges();
+
+                MessageBox.Show(output.ToString());
+
+                db.Dispose();
+            }
+        }
+
+        private void btnDeleteCourse_Click(object sender, EventArgs e)
+        {
+            using (SchoolDBEntities db = new SchoolDBEntities())
+            {
+                Course course = db.Courses.First<Course>();   
+                db.Courses.Remove(course);
+                int output = db.SaveChanges();
+
+                MessageBox.Show(output.ToString());
+
+                db.Dispose();
+            }
+        }
