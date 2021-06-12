@@ -1,0 +1,20 @@
+let weightOfMarks = 95;
+let hightOfMarker =1.88;
+let weightOfJohn = 85;
+let hightOfJohn = 1.75;
+
+let BMIOfMarks = weightOfMarks / hightOfMarker ** 2;
+let BMIOfJohn = weightOfJohn / hightOfJohn ** 2;
+console.log(BMIOfMarks);
+console.log(BMIOfJohn);
+
+console.log(typeof BMIOfMarks>BMIOfJohn);
+
+if(BMIOfMarks>BMIOfJohn){
+    console.log("Mak's BMI is higher than John's!");
+} if (BMIOfMarks<BMIOfJohn){
+    console.log("John;s BMI is higher than Marks'");
+}
+
+console.log("Mark's BMI"+"(" + BMIOfMarks+ ")");
+console.log("John's BMI"+"(" + BMIOfJohn+ ")");
