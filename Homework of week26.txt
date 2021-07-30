@@ -1,0 +1,15 @@
+const tempratures =[17,21,23]; 
+const printForecast = function (arr){
+    
+    let a ='';
+    
+   for(i=0; i<arr.length; i++){
+        let temp =arr[i];
+      a = console.log( `${temp}c in ${i+1} day`);
+    }
+    return a;
+
+}
+
+const f = (printForecast(tempratures))
+console.log(f)
