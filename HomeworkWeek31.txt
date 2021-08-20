@@ -1,0 +1,45 @@
+// let dogAges = [5,2,4,1,15,8,3]
+// let humenAge = [];
+// const calcAverrageHumanAge = function(){
+
+//     dogAges.forEach((element) => {
+//     if (element<=2){
+//         humenAge.push(2 *element)
+//     }
+//     else if(element>2){
+//         humenAge.push(16 + element * 4)
+//     }
+// })
+//     return humenAge
+
+// }
+// console.log(calcAverrageHumanAge())
+
+// const youngerHumenAge = humenAge.filter(humenAge=> humenAge<18 )
+// console.log(youngerHumenAge)
+// const avg =humenAge.reduce((total,amount) =>(total+amount))/7
+// console.log(avg)
+
+
+
+let dogAges = [5,2,4,1,15,8,3]
+let humenAge = [];
+function calcAverrageHumanAge(){
+
+    dogAges.forEach((element) => {
+    if (element<=2){
+        humenAge.push(2 *element)
+    }
+    else if(element>2){
+        humenAge.push(16 + element * 4)
+    }
+})
+    return humenAge
+
+}
+console.log(calcAverrageHumanAge())
+
+const youngerHumenAge = humenAge.filter(humenAge=> humenAge<18 )
+console.log(youngerHumenAge)
+const avg =humenAge.reduce((total,amount) =>(total+amount))/7
+console.log(avg)
