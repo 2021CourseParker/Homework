@@ -1,0 +1,40 @@
+class Employee{
+    constructor(firstName,lastName,jobTitle,dateOfEmployment){
+        this.firstName=firstName ;  
+        this.lastName = lastName;
+        this.jobTitle = jobTitle;
+        this.dateOfEmployment = dateOfEmployment
+    }
+
+    get FirstName(){
+        return this.firstName;
+    }
+    set FirstName(newFirstName){
+        this.firstName = newFirstName
+    }
+
+    get LastName(){
+        return this.lastName;
+    }
+    set LastName(newLastName){
+        this.lastName = newLastName
+    }
+
+    get JobTitle(){
+        return this.jobTitle;
+    }
+    set JobTitle(newJobTitle){
+        this.jobTitle = newJobTitle
+    }
+
+    get DateOfEmployment(){
+        return this.dateOfEmployment;
+    }
+    set DateOfEmployment(newDateOfEmployment){
+        this.dateOfEmployment = newDateOfEmployment
+    }
+
+} 
+
+const ep1 = new Employee('Micheal', 'Jodan', 'Basketball plaer', '1998.05.01')
+console.log(`Employee ${ep1.firstName} is working as ${ep1.lastName}and joined the company on  ${ep1.jobTitle} ${ep1.dateOfEmployment}`)
