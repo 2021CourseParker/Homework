@@ -1,0 +1,37 @@
+public static void Main(string[] args)
+        {
+
+            WordDocumenttCreater();
+            Console.ReadKey();
+        }
+        public static void WordDocumenttCreater()
+        {
+
+            SqlConnection conn;
+            //constr = @"Data Source=DESKTOP-3VG8907;Initial Catalog=Practise_db";
+            string connectionString = "Data Source=DESKTOP-3VG8907;Integrated Security=true;Initial Catalog=Practise_db; ";
+            conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmd;
+            SqlDataReader dreader;
+            string sql, output = "";
+            sql = "Select ID, Name from Student";
+            cmd = new SqlCommand(sql, conn);
+            dreader = cmd.ExecuteReader();
+            while (dreader.Read())
+            {
+                output = output + dreader.GetValue(0) + " - " + dreader.GetValue(1) + "\n";
+                
+            }
+            Document doc = new Document();
+            DocumentBuilder builder = new DocumentBuilder(doc);
+
+            builder.Writeln(output);
+            doc.Save("bla.docx");
+
+            //Console.WriteLine(output);
+            dreader.Close();
+            cmd.Dispose();
+            conn.Close();
+
+        }

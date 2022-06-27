@@ -1,5 +1,3 @@
-
-
 select title from tv_shows
 inner join reviews 
 on tv_shows.id = reviews.tv_show_id
